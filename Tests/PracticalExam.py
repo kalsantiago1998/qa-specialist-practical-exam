@@ -1,9 +1,6 @@
 from selenium import webdriver
 
-#driver=webdriver.Chrome(executable_path="C:\Program Files\Google\Chrome\Application\chrome.exe")
-
-from webdriver_manager.chrome import ChromeDriverManager    
-driver=webdriver.Chrome(ChromeDriverManager().install())
+driver=webdriver.Chrome(executable_path="C:\Program Files\Google\Chrome\Application\chrome.exe")
 driver.maximize_window()
 
 driver.get("https://titan22.com/account/register")
