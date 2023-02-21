@@ -1,18 +1,38 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 
-driver=webdriver.Chrome(executable_path="C:\Program Files\Google\Chrome\Application\chrome.exe")
-driver.maximize_window()
+def test_selenium_demo():
+    options = webdriver.ChromeOptions()
+    options.add_experimental_option("detach", True)
+    driver.maximize_window()
 
-driver.get("https://titan22.com/account/register")
+    driver = webdriver.Chrome(options=options)
+    driver.get("https://titan22.com/account/register")
 
-driver.find_element_by_id("FirstName").send_keys("Juan")
-driver.find_element_by_id("LastName").send_keys("Dela Cruz")
-driver.find_element_by_id("Email").send_keys("juandelacruz@yopmail.com")
-driver.find_element_by_id("CreatePassword").send_keys("password@1234")
-driver.find_element_by_id("customer[accepts_terms]").click()
-driver.find_element_by_type("submit").click()
+    firstName = driver.find_element(By.ID, "FirstName")
+    firstName.clear()
+    firstName.send_keys("Juan")
 
-print('Driver Title',driver.title)
-print('Driver Name',driver.name)
-print('Driver URL',driver.current_url)
+    lastName = driver.find_element(By.ID, "LastName")
+    lastName.clear()
+    lastName.send_keys("Dela Cruz")
+
+    email = driver.find_element(By.ID, "Email")
+    email.clear()
+    email.send_keys("juandelacruz@yopmail.com")
+
+    password = driver.find_element(By.ID, "CreatePassword")
+    password.clear()
+    password.send_keys("password@1234")
+
+    password = driver.find_element(By.ID, "CreatePassword")
+    password.clear()
+    password.send_keys("password@1234")
+
+    custAcceptTerms = driver.find_element(By.ID, "customer[accepts_terms]")
+    custAcceptTerms.click()
+
+    submit = driver.find_element(By.CLASS_NAME,"button button--primary")
+    submit.click()
+ 
 
